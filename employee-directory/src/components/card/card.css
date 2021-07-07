@@ -10,3 +10,12 @@
    align-items: center;
 
 }
+
+.emp-card:hover {
+    transform: scale(1.02);
+}
+
+.photo{
+    border: solid 2px lightblue;
+    border-radius: 10px;
+}

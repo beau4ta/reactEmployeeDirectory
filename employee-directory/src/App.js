@@ -4,19 +4,22 @@ import Header from './components/header/header';
 import Card from './components/card/card';
 import API from './utils/API';
 import Search from './components/search/search';
+import empHeader from './components/emp-header/emp-header';
 
 class App extends React.Component {
   state = {
     employees: [],
     employeeSort: [],
     search: '',
-    sorted: false,
   };
 
   componentDidMount() {
     API.getRandomUser()
       .then(res => {
-        this.setState({ employees: res.data.results })
+        this.setState({ 
+          employees: res.data.results, 
+          employeeSort: res.data.results
+        })
       })
   }
 
@@ -41,8 +44,7 @@ class App extends React.Component {
     });
   };
 
-
-
+  
   render() {
     return (
       <div>
