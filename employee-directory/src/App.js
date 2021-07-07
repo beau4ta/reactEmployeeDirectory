@@ -3,10 +3,14 @@ import './App.css';
 import Header from './components/header/header';
 import Card from './components/card/card';
 import API from './utils/API';
+import Search from './components/search/search';
 
 class App extends React.Component {
   state = {
     employees: [],
+    employeeSort: [],
+    search: '',
+    sorted: false,
   };
 
   componentDidMount() {
@@ -16,11 +20,37 @@ class App extends React.Component {
       })
   }
 
+  sortEmployee = () => {
+    let { employees, search } = this.state;
+    let employeeSort = employees.filter((sorted) => {
+      return (
+        sorted.name.first.toLowerCase().includes(search.toLowerCase()) ||
+        sorted.name.last.toLowerCase().includes(search.toLowerCase()) ||
+        sorted.email.toLowerCase().includes(search.toLowerCase())
+      );
+    });
+    this.setState({ employeeSort });
+  }
+
+  startSort = (event) => {
+    event.preventDefault();
+
+    this.setState({ search: event.target.value }, () => {
+      this.sortEmployee();
+      this.setState({ sorted: true });
+    });
+  };
+
+
+
   render() {
     return (
       <div>
         <Header />
-        <div className="header d-flex justify-content-between">
+        <Search 
+        startSort={this.startSort}
+        />
+        <div className="emp-header d-flex justify-content-around">
           <div>Photo</div>
           <div>Name</div>
           <div>Age</div>
@@ -30,7 +60,7 @@ class App extends React.Component {
         </div>
 
         {
-          this.state.employees.map((item) => (
+          this.state.employeeSort.map((item) => (
 
             <Card
               picture={item.picture.large}

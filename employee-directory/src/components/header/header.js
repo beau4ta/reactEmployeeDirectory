@@ -1,9 +1,10 @@
 import React from 'react'
+import './header.css'
 
 const Header = () => {
     return (
         <div className='header-container d-flex align-items-center flex-column'>
-            <h1 className='header-title'>Employee Directory</h1>
+            <h1 className='title'>Employee Directory</h1>
             <p className='sub-title'>Welcome to the Employee Directory!</p>
         </div>
     )

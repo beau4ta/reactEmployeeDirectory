@@ -1,0 +1,10 @@
+.header-container{
+    background-color: cornflowerblue;
+    border: lightblue solid 2px;
+    margin-bottom: 10px;
+}
+
+.title{
+    color: lightblue;
+    text-shadow: 2px 2px blue;
+}
