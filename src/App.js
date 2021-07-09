@@ -4,7 +4,6 @@ import Header from './components/header/header';
 import Card from './components/card/card';
 import API from './utils/API';
 import Search from './components/search/search';
-import empHeader from './components/emp-header/emp-header';
 
 class App extends React.Component {
   state = {

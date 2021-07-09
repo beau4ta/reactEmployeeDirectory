@@ -34,6 +34,6 @@
   
   Email me with any questions: beaufortier13@gmail.com
   
-Link to deployed application:
+Link to deployed application: https://beau4ta.github.io/reactEmployeeDirectory/
 
 <img src='assets/empDirectSS.png'>
